@@ -1,0 +1,28 @@
+<%- include("partials/header") %>
+
+    <h1 class="text-center">Compose</h1>
+    <div style="display: flex; justify-content: center;">
+        <form action="/compose" method="post">
+
+            <div class="">
+                <p class="fw-semibold fs-5 mt-2">Your Name</p>
+                <input type="text" class="form-control " name="postBy" placeholder="Title of the project">
+            </div>
+            <div class="">
+                <p class="fw-semibold fs-5 mt-2">Title</p>
+                <input type="text" class="form-control " name="postTitle" placeholder="Title of the project">
+            </div>
+
+            <div class="">
+                <p class="fw-semibold fs-5 mt-2">Post</p>
+                <textarea name="postBody" id="postInput" class="form-control " cols="30" rows="5"
+                    placeholder="add your content "></textarea>
+
+            </div>
+            <form>
+                <button type="submit " class="btn btn-primary mt-4">publish</button>
+
+            </form>
+        </form>
+    </div>
+    <%- include("partials/footer") %>
