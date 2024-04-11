@@ -1,28 +1,27 @@
 <%- include("partials/header") %>
 
-    <h1 class="text-center">Compose</h1>
-    <div style="display: flex; justify-content: center;">
+    <div class="container">
+        <h1 class="text-center">Compose</h1>
         <form action="/compose" method="post">
-
-            <div class="">
-                <p class="fw-semibold fs-5 mt-2">Your Name</p>
-                <input type="text" class="form-control " name="postBy" placeholder="Title of the project">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <label for="postBy" class="form-label fw-semibold fs-5">Your Name</label>
+                        <input type="text" class="form-control" id="postBy" name="postBy" placeholder="Your Name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="postTitle" class="form-label fw-semibold fs-5">Title</label>
+                        <input type="text" class="form-control" id="postTitle" name="postTitle" placeholder="Title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="postBody" class="form-label fw-semibold fs-5">Post</label>
+                        <textarea class="form-control" id="postBody" name="postBody" rows="5"
+                            placeholder="Add your content"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Publish</button>
+                </div>
             </div>
-            <div class="">
-                <p class="fw-semibold fs-5 mt-2">Title</p>
-                <input type="text" class="form-control " name="postTitle" placeholder="Title of the project">
-            </div>
-
-            <div class="">
-                <p class="fw-semibold fs-5 mt-2">Post</p>
-                <textarea name="postBody" id="postInput" class="form-control " cols="30" rows="5"
-                    placeholder="add your content "></textarea>
-
-            </div>
-            <form>
-                <button type="submit " class="btn btn-primary mt-4">publish</button>
-
-            </form>
         </form>
     </div>
+
     <%- include("partials/footer") %>
