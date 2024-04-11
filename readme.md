@@ -1,5 +1,9 @@
 # Simple-Blog-Website-
 
+## Live Demo
+
+The application is deployed at: [Deployed Link](https://simple-blog-website-apct.onrender.com/)
+
 ## Description
 
 This is a Node.js application that serves content from a database. It fetches a post by its ID and returns the post body. If the post is not found, it throws an error. If any error occurs during the process, it logs the error and throws a new error.
