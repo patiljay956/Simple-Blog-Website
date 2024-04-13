@@ -37,7 +37,7 @@ app.get("/", async function (req, res) {
     const fullDate = day.toLocaleDateString("en-US", options);
 
     // Fetch posts from MongoDB
-    const posts = await Post.find({});
+    const posts = await Post.find({}).sort({ _id: -1 });
     const postArray = Array.isArray(posts) ? posts : [];
 
     res.render("home", {
