@@ -11,7 +11,7 @@
                                 <%= post.title %>
                             </h2>
                             <h3 class="post-subtitle">
-                                <%= post.postBody.slice(0, 60) + "..." %>
+                                <%= stripHTML(post.postBody).slice(0, 60) + "..." %>
                             </h3>
                         </a>
                         <p class="post-meta">

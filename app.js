@@ -1,7 +1,8 @@
-require("dotenv").config();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const express = require("express");
+
+require("dotenv").config();
 
 const app = express();
 
@@ -20,6 +21,11 @@ const Post = mongoose.model("Post", postSchema);
 
 const aboutPageContent =
   "Welcome to our blog! We are a team of passionate writers who love to share our thoughts and experiences with you. Whether it's technology, travel, or lifestyle, we cover it all. Stay tuned for exciting and informative posts that will keep you engaged and entertained.";
+
+// Function to strip HTML tags from text
+function stripHTML(text) {
+  return text.replace(/<[^>]*>?/gm, "");
+}
 
 app.use(express.static("static"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -43,28 +49,12 @@ app.get("/", async function (req, res) {
     res.render("home", {
       postArray: postArray,
       postDate: fullDate,
+      stripHTML: stripHTML,
     });
   } catch (err) {
     console.error(err);
     throw new Error("An error occurred while fetching posts.");
   }
-});
-
-// Contact route
-app.get("/contact", function (req, res) {
-  res.render("contact");
-});
-
-// Compose route
-app.get("/compose", function (req, res) {
-  res.render("compose");
-});
-
-// About route
-app.get("/about", function (req, res) {
-  res.render("about", {
-    AboutContent: aboutPageContent,
-  });
 });
 
 // Handle post creation and saving to MongoDB
@@ -83,6 +73,23 @@ app.post("/compose", async (req, res) => {
     console.error(err);
     throw new Error("An error occurred while saving the post.");
   }
+});
+
+// Contact route
+app.get("/contact", function (req, res) {
+  res.render("contact");
+});
+
+// Compose route
+app.get("/compose", function (req, res) {
+  res.render("compose");
+});
+
+// About route
+app.get("/about", function (req, res) {
+  res.render("about", {
+    AboutContent: aboutPageContent,
+  });
 });
 
 // Post route
