@@ -17,7 +17,7 @@
                         <p class="post-meta">
                             Posted by <a href="#!">
                                 <%= post.writer %>
-                            </a> on <%= postDate %>
+                            </a> on <%= post.createdAt?.toDateString() %>
                         </p>
                     </div>
                     <% }); %>
